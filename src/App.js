@@ -5,7 +5,6 @@ import Form from "./Components/Form/Form";
 import Users from "./Components/Users/Users";
 import {userService} from "./services/user.service";
 
-
 function App() {
     const [users, setUsers] = useState([])
     const [filterOfUsers, setFilterOfUsers] = useState([])

@@ -1,0 +1,12 @@
+.form {
+    font-size: 22px;
+    height: 100px;
+}
+
+
+.btn {
+    background-color: lavender;
+    width: 100px;
+    font-size: 16px;
+    margin-left: 20px;
+}
