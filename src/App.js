@@ -1,37 +1,35 @@
-import {useEffect, useState} from "react";
-
 import './App.css'
-import Form from "./Components/Form/Form";
-import Users from "./Components/Users/Users";
-import {userService} from "./services/user.service";
+import {Routes, Route, Link} from "react-router-dom"
+
+import Homepage from "./Components/pages/Homepage";
+import Aboutpage from "./Components/pages/Aboutpage";
+import Notfoundpage from "./Components/pages/Notfoundpage";
+import Userspage from "./Components/pages/Userspage";
+import Postspage from "./Components/pages/Postspage";
+import Layout from "./Components/Layout/Layout";
+import SinglePostPage from "./Components/pages/SinglePostPage";
+
+
 
 function App() {
-    const [users, setUsers] = useState([])
-    const [filterOfUsers, setFilterOfUsers] = useState([])
-
-useEffect(()=>{
-        userService.getAll().then(value => {
-            setUsers([...value],
-            setFilterOfUsers([...value]))
-        })
-    },[])
-
-const filterUser = (data)=> {
-let arrayFiltered = [...users]
-    if (data.name) {
-        arrayFiltered = arrayFiltered.filter(user => user.name.toLowerCase().includes(data.name.toLowerCase()))}
-    if (data.username) {
-        arrayFiltered = arrayFiltered.filter(user => user.username.toLowerCase().includes(data.username.toLowerCase()))}
-    if (data.email) {
-        arrayFiltered = arrayFiltered.filter(user=>user.email.toLowerCase().includes(data.email.toLowerCase()))}
-
-setFilterOfUsers(arrayFiltered)
-}
-
     return (
     <div>
-        <Form filterUser={filterUser}/>
-        <Users users={filterOfUsers}/>
+
+<Routes>
+    <Route path={'/'} element={<Layout/>}>
+        <Route index element={<Homepage/>}/>
+        <Route path={'users'} element = {<Userspage/>}/>
+        <Route path={'posts'} element = {<Postspage/>}>
+            <Route path={':id'} element = {<SinglePostPage/>}/>
+        </Route>
+
+        <Route path={'about'} element = {<Aboutpage/>}/>
+        <Route path={'*'} element = {<Notfoundpage/>}/>
+
+    </Route>
+
+
+</Routes>
 
     </div>
     );
