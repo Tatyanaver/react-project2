@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Userspage = () => {
+const Photos = () => {
     return (
         <div>
-            User page
+           Photo
         </div>
     );
 };
 
-export default Userspage;
+export default Photos;

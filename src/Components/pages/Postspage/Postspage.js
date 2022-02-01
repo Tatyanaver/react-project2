@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from 'react';
-import {postService} from "../../services/post.service";
-import Posts from "../Posts/Posts";
+import {postService} from "../../../services/post.service";
 import {Outlet} from "react-router-dom";
+import {Posts} from "../Posts/Posts";
 
 const Postspage = () => {
+
     const [posts,setPosts] = useState([])
     useEffect(()=> {
         postService.getAll().then(value => setPosts([...value]))
@@ -11,7 +12,7 @@ const Postspage = () => {
 
     return (
     <div>
-        <h1>Posts</h1>
+        <h3>Posts</h3>
         {posts.map (post => <Posts key={post.id} post = {post}/>)}
         <div>
             <Outlet/>
@@ -20,4 +21,4 @@ const Postspage = () => {
 
 };
 
-export default Postspage;
+export {Postspage};

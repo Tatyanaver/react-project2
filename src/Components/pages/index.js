@@ -1,0 +1,7 @@
+export * from './Header/Header'
+export * from './PostCommentsPage/PostCommentsPage'
+export * from './PostDetailsPage/PostDetailsPage'
+export * from './Postspage/Postspage'
+export * from './Userspage/Userspage'
+export * from './UserDetailsPage/UserDetailsPage'
+export * from './UserPostsPage/UserPostsPage'

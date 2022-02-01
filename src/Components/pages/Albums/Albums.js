@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Aboutpage = () => {
+const Albums = () => {
     return (
         <div>
-            About
+          Album
         </div>
     );
 };
 
-export default Aboutpage;
+export default Albums;

@@ -1,36 +1,38 @@
 import './App.css'
-import {Routes, Route, Link} from "react-router-dom"
-
-import Homepage from "./Components/pages/Homepage";
-import Aboutpage from "./Components/pages/Aboutpage";
-import Notfoundpage from "./Components/pages/Notfoundpage";
-import Userspage from "./Components/pages/Userspage";
-import Postspage from "./Components/pages/Postspage";
+import {Routes, Route} from "react-router-dom"
 import Layout from "./Components/Layout/Layout";
-import SinglePostPage from "./Components/pages/SinglePostPage";
-
-
+import {
+    PostCommentsPage,
+    PostDetailsPage,
+    Postspage,
+    UserDetailsPage,
+    UserPostsPage,
+    Userspage
+} from "./Components/pages";
+import Albums from "./Components/pages/Albums/Albums";
+import Photos from "./Components/pages/Photos/Photos";
 
 function App() {
     return (
-    <div>
+      <div>
 
-<Routes>
-    <Route path={'/'} element={<Layout/>}>
-        <Route index element={<Homepage/>}/>
-        <Route path={'users'} element = {<Userspage/>}/>
+    <Routes>
+        <Route path={'/'} element={<Layout/>}>
+            <Route path={'users'} element = {<Userspage/>}>
+                <Route path={':id'} element={<UserDetailsPage/>}/>
+                <Route path={'posts'} element={<UserPostsPage/>}/>
+            </Route>
+            <Route path={':id/albums'} element={<Albums/>}>
+                <Route path={':albumId/photos'} element={<Photos/>}/>
+            </Route>
+
         <Route path={'posts'} element = {<Postspage/>}>
-            <Route path={':id'} element = {<SinglePostPage/>}/>
+            <Route path={':id'} element={<PostDetailsPage/>}/>
+            <Route path={'comments'} element={<PostCommentsPage/>}/>
         </Route>
 
-        <Route path={'about'} element = {<Aboutpage/>}/>
-        <Route path={'*'} element = {<Notfoundpage/>}/>
-
     </Route>
-
-
 </Routes>
-
     </div>
     );
 }
