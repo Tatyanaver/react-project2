@@ -1,6 +1,6 @@
 .main {
-    min-height: 70px;
-    background-color: teal;
+    min-height: 60px;
+    background-color: blue;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,22 +15,6 @@
 
 .main a[class='active'] {
     text-decoration: underline;
-    color: bisque;
+    color: sienna;
 }
-.outlet {
-    width: 95%;
-    margin:0 auto;
-    height: calc (100vh-90px);
-    overflow: hidden;
-    overflow-y: auto;
-}
-.footer {
-    background-color: dimgray;
-    color: snow;
-    min-height: 30px;
-    display: flex;
-    justify-content:right;
-    padding-right: 20px;
-    padding-bottom: 0;
-    margin-bottom: 0;
-}
+

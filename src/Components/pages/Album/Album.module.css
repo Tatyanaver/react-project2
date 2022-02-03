@@ -1,0 +1,9 @@
+.album {
+    border: 1px solid dimgray;
+    margin-bottom: 10px;
+}
+
+.photo_btn {
+    width: 100%;
+    background-color: dimgray;
+}
