@@ -1,0 +1,20 @@
+.count {
+    font-size: 25px;
+    background-color: bisque;
+}
+
+.count2 {
+    font-size: 25px;
+    background-color: beige;
+}
+
+.count3 {
+    font-size: 25px;
+    background-color: lightgreen;
+}
+
+.btn {
+    margin: 20px 5px;
+    font-size: 15px;
+    background-color: teal;
+}
