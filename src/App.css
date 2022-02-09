@@ -1,20 +1,12 @@
-.count {
-    font-size: 25px;
-    background-color: bisque;
+.main {
+    margin-right: auto;
+    margin-left: auto;
 }
 
-.count2 {
-    font-size: 25px;
-    background-color: beige;
-}
-
-.count3 {
-    font-size: 25px;
-    background-color: lightgreen;
-}
-
-.btn {
-    margin: 20px 5px;
-    font-size: 15px;
-    background-color: teal;
+.item {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 10px;
+    margin-right: 250px;
 }

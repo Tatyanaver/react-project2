@@ -1,34 +1,33 @@
-import React, {useState} from 'react';
-import './Form.css'
+import React, {useRef} from 'react';
+import classes from "./Form.module.css";
 
-const Form = ({filterUser}) => {
-    const [formItem,setFormItem] = useState({name:'',username:'',email:''});
+const Form = ({dispatch}) => {
+    const catName = useRef();
+    const dogName = useRef();
 
-const formChange = (e) => {
-    const item = {...formItem, [e.target.name]: e.target.value}
-    setFormItem({...formItem, ...item})
-}
-
-const findUser = function (e) {
-    e.preventDefault()
-    filterUser(formItem)}
+    const add = (e) => {
+        e.preventDefault();
+        e.target.reset();}
+    const saveCatName = () => {
+        dispatch({type: 'add_cat', payload: {cat: catName.current.value}})
+    }
+    const saveDogName = () => {
+        dispatch({type: 'add_dog', payload: {dog: dogName.current.value}})
+    }
 
     return (
-        <div>
-            <form className={'form'}>
-                <label>Name:
-                    <input type="text" name={'name'} value={formItem.name} onChange={formChange}/>
-                </label>
-                <label> Username:
-                    <input type="text" name={'username'} value={formItem.username} onChange={formChange}/>
-                </label>
-                <label> email:
-                    <input type="text" name={'email'} value={formItem.email} onChange={formChange}/>
-                </label>
-                <button onClick={findUser} className={'btn'}>find</button>
-            </form>
-        </div>
+        <form className={classes.form} onSubmit={add}>
+            <label className={classes.field}>Add cat:
+                <input type="text" placeholder={'cat'} ref={catName} className={classes.inp}/>
+                <button onClick={saveCatName}>Save cat</button>
+            </label>
+            <label className={classes.field}>Add dog:
+                <input type="text" placeholder={'dog'} ref={dogName} className={classes.inp}/>
+                <button onClick={saveDogName}>Save dog</button>
+            </label>
+        </form>
+
     );
 };
 
-export default Form;
+export {Form};
