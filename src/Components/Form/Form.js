@@ -1,30 +1,26 @@
-import React, {useRef} from 'react';
-import classes from "./Form.module.css";
+import React from 'react';
+import {useForm} from "react-hook-form";
+import {useDispatch} from "react-redux";
+import {addCar} from "../../store/car.slice";
 
-const Form = ({dispatch}) => {
-    const catName = useRef();
-    const dogName = useRef();
+const Form = () => {
+    const {register,handleSubmit,reset}= useForm()
+    const dispatch = useDispatch()
 
-    const add = (e) => {
-        e.preventDefault();
-        e.target.reset();}
-    const saveCatName = () => {
-        dispatch({type: 'add_cat', payload: {cat: catName.current.value}})
-    }
-    const saveDogName = () => {
-        dispatch({type: 'add_dog', payload: {dog: dogName.current.value}})
+    const submit=(data)=> {
+    dispatch(addCar({data}))
+    reset()
     }
 
     return (
-        <form className={classes.form} onSubmit={add}>
-            <label className={classes.field}>Add cat:
-                <input type="text" placeholder={'cat'} ref={catName} className={classes.inp}/>
-                <button onClick={saveCatName}>Save cat</button>
-            </label>
-            <label className={classes.field}>Add dog:
-                <input type="text" placeholder={'dog'} ref={dogName} className={classes.inp}/>
-                <button onClick={saveDogName}>Save dog</button>
-            </label>
+        <form onSubmit={handleSubmit(submit)}>
+            <label>Model:
+                <input type="text" {...register('model')}/></label>
+            <label>Price:
+                <input type="text" {...register('price')}/></label>
+            <label>Year:
+                <input type="text" {...register('year')}/></label>
+            <button>save</button>
         </form>
 
     );
