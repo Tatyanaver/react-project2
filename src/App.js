@@ -1,14 +1,25 @@
-import {useState} from "react";
 import './App.css'
-import {Cars,Form} from "./Components/index";
+import Header from "./Components/Header/Header";
+
 
 function App() {
-const [cars,setCars] = useState([]);
+
 
 return (
       <div>
-        <Form/>
-        <Cars/>
+
+          <Header/>
+{/*<Routes>*/}
+{/*              <Route path={'/'} element = {<Header/>}>*/}
+
+{/*              <Route path={'movies'} element = {<Movies/>}>*/}
+{/*                  <Route path={':id'} element={<MoviesList/>}/>*/}
+
+{/*                  </Route>*/}
+{/*              <Route path={'genres'} element = {<Genres/>}/>*/}
+{/*              </Route>*/}
+{/*</Routes>*/}
+
     </div>
     );
 }

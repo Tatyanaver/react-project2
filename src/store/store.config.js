@@ -1,9 +1,10 @@
 import {configureStore} from "@reduxjs/toolkit";
-import carReducer from "./car.slice";
+import movieReducer from "./movie.slice";
 
-const store=configureStore({
+const store = configureStore({
     reducer:{
-        carReducer:carReducer
+        movieReducer: movieReducer,
+        // genreReducer: genreReducer,
     }
 })
 
