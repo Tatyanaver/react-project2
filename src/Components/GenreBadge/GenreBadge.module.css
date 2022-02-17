@@ -1,0 +1,11 @@
+.genre {
+    font-size: 30px;
+    font-weight: bold;
+    font-style: oblique;
+    border: 2px solid black;
+    border-radius: 50%;
+    width: 20%;
+    height: 70px;
+    text-align: center;
+    background-color: cornsilk;
+}

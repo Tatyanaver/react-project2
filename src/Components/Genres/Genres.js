@@ -2,7 +2,7 @@ import React from 'react';
 import {useState,useEffect} from "react";
 import {genresService} from "../../services/genres.service";
 import GenreBadge from "../GenreBadge/GenreBadge";
-import MoviesListCard from "../MoviesListCard/MoviesListCard";
+import classes from "./Genres.modulle.css";
 
 
 const Genres = () => {
@@ -10,7 +10,8 @@ const Genres = () => {
     useEffect(()=> {
         genresService.getAllGenres().then(value => setGenres([...value]))},[])
     return (
-        <div>
+        <div className={classes.genres}>
+
             {genres.map (genre => <GenreBadge key={genre.id} genre = {genre}/>)}
         </div>
     );

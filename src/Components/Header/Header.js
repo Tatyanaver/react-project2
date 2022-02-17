@@ -1,17 +1,18 @@
 import React from 'react';
-import {NavLink} from "react-router-dom";
-import Genres from "../Genres/Genres";
-import MoviesList from "../MoviesList/MoviesList";
+import {NavLink, Outlet} from "react-router-dom";
+import classes from "./Header.module.css";
 
 
 const Header = () => {
     return (
         <div>
+            <div className={classes.main}>
+
+                <NavLink to="movies">Movies</NavLink>
+                <NavLink to="genres">Genres</NavLink>
+            </div>
             <div>
-                <Genres/>
-                <MoviesList/>
-                {/*<NavLink to="movies">Movies</NavLink>*/}
-                {/*<NavLink to="genres">Genres</NavLink>*/}
+                <Outlet/>
             </div>
 
         </div>

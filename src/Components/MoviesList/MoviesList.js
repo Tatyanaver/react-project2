@@ -13,7 +13,6 @@ const {movies,status,error} = useSelector(state=>state['movieReducer'])
     useEffect(()=> {
         dispatch(getAllMovies())},[])
 
-
     return (
         <div>
             {status==='pending' && <h3>Loading</h3>}
