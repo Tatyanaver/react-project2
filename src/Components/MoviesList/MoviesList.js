@@ -8,7 +8,7 @@ import {getAllMovies} from "../../store/movie.slice";
 
 const MoviesList = () => {
 const {movies,status,error} = useSelector(state=>state['movieReducer'])
- const dispatch = useDispatch()
+     const dispatch = useDispatch()
 
     useEffect(()=> {
         dispatch(getAllMovies())},[])
@@ -18,8 +18,9 @@ const {movies,status,error} = useSelector(state=>state['movieReducer'])
             {status==='pending' && <h3>Loading</h3>}
             {error&& <h3>{error}</h3>}
             {movies.map (movie => <MoviesListCard key={movie.id} movie = {movie}/>)}
+            {/*{data.results.map (movie => <MoviesListCard key={movie.id} movie = {movie}/>)}*/}
         </div>
     );
 };
 
-export default MoviesList;
+export default MoviesList
