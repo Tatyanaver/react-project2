@@ -4,5 +4,10 @@ import {apiKey} from "../config";
 
 
 export const moviesService = {
-    getAllMovies: ()=> axiosService.get(`${urls.movies}?api_key=${apiKey}`).then(value=>value.data.results),
-    getMovieById: (id)=>axiosService.get(`${urls.movies}/${id}`).then(value => value.data),}
+
+    getAllMovies: (page)=> axiosService.get(`${urls.movies}?api_key=${apiKey}&page=${page}`).then(value=>value.data),
+    getMovieById: (id)=>axiosService.get(`${urls.movie}/${id}`).then(value => value.data),
+
+
+}
+
