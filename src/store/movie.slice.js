@@ -1,15 +1,21 @@
 import {createSlice, createAsyncThunk} from "@reduxjs/toolkit";
 
 import {moviesService} from "../services/movies.service";
+// import {page} from "../services/movies.service";
 
 
 export const getAllMovies = createAsyncThunk(
     'movieSlice/getAllMovies',
     async (_, {rejectWithValue})=> {
         try {
-            const movies = await moviesService.getAllMovies();
-            return movies
-        }
+            // const movies = await moviesService.getAllMovies();
+            // return movies
+            const {results, total_pages} = await moviesService.getAllMovies(page);
+            let page=1;
+            for (page = 1; page <= total_pages.length; page++) {
+            getAllMovies(page);
+            }
+            return results}
         catch (e) {
             return rejectWithValue(e.message)
         }
@@ -39,4 +45,6 @@ const movieSlice = createSlice({
 })
 
 const movieReducer = movieSlice.reducer
+
+
 export default movieReducer
